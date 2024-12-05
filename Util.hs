@@ -1,5 +1,8 @@
 module Util where
 
+count :: Eq a => a -> [a] -> Int
+count x = length . filter (== x)
+
 wordsBy :: (a -> Bool) -> [a] -> [[a]]
 wordsBy f s = case dropWhile f s of
   [] -> []
