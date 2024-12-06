@@ -3,6 +3,9 @@ module Util where
 count :: Eq a => a -> [a] -> Int
 count x = length . filter (== x)
 
+applyNTimes :: Int -> (a -> a) -> a -> a
+applyNTimes n f = foldr (.) id (replicate n f)
+
 wordsBy :: (a -> Bool) -> [a] -> [[a]]
 wordsBy f s = case dropWhile f s of
   [] -> []
